@@ -25,7 +25,6 @@ services:
           type: web
           name: civic-sense-backend
           envVarKey: RENDER_EXTERNAL_URL
-        property: value
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
