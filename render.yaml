@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: civic-sense-backend
+    env: python
+    region: singapore
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "gunicorn --chdir backend run:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 5001
+
+  - type: web
+    name: civic-sense-frontend
+    env: node
+    region: singapore
+    buildCommand: "cd frontend && npm install && npm run build"
+    startCommand: "cd frontend && npm run preview -- --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: civic-sense-backend
+          envVarKey: RENDER_EXTERNAL_URL
+        property: value
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20
