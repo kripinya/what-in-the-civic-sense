@@ -2,8 +2,6 @@ import * as Phaser from 'phaser';
 
 export default class MainScene extends Phaser.Scene {
     private missionData: any;
-    private userData: any;
-    private trashItems: Phaser.GameObjects.Sprite[] = [];
     private scoreEarned: number = 0;
     private maxScore: number = 0;
     private uiText!: Phaser.GameObjects.Text;
@@ -37,7 +35,6 @@ export default class MainScene extends Phaser.Scene {
 
     create() {
         this.missionData = this.registry.get('missionData') || {};
-        this.userData = this.registry.get('user') || {};
 
         this.cameras.main.setBackgroundColor('#87CEEB'); // Sky blue
 
@@ -99,7 +96,7 @@ export default class MainScene extends Phaser.Scene {
             });
         }
 
-        this.input.on('drag', (pointer: any, gameObject: Phaser.GameObjects.Sprite, dragX: number, dragY: number) => {
+        this.input.on('drag', (_pointer: any, gameObject: Phaser.GameObjects.Sprite, dragX: number, dragY: number) => {
             gameObject.x = dragX;
             gameObject.y = dragY;
         });
