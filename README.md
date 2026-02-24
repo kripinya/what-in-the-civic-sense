@@ -1,3 +1,6 @@
+To run :
+You can run cd frontend && npm install && npm run dev to start the app at http://localhost:5173
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
