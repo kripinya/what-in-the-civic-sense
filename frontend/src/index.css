@@ -78,3 +78,7 @@ body {
   box-shadow: 8px 8px 0px #000;
   max-width: fit-content;
 }
+
+.game-container canvas {
+  image-rendering: pixelated;
+}

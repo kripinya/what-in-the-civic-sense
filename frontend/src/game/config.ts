@@ -8,6 +8,8 @@ export const config: Phaser.Types.Core.GameConfig = {
     height: 600,
     parent: 'game-container',
     pixelArt: true,
+    antialias: false,
+    roundPixels: true,
     physics: {
         default: 'arcade',
         arcade: {
